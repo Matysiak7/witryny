@@ -1,5 +1,40 @@
+<!doctype html>
 <html>
-<body>
-<p>Dzień dobry</p>
-</body>
+<head>
+<title>Elementy Podstawowe</title>
+<meta charset="UTF-8"/>
+<meta name="keywords" content="Słowa kluczowe"/>
+<meta name="description" content="zadanie elementy podstawowe" /> 
+<meta name="autor" content="Hubert Matysiak" /> 
+<meta name="robots" content="all" />
+<style>
+  section{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    position: absolute;
+    left: 20px; 
+  }
+</style>
+</head> 
+<body> 
+<h1>Jan Brzechwa ZOO</h1>
+<br>
+<h2>TYGRYS</h2>
+<p>"Co słychać, panie tygrysie?"<br>
+"A nic. Nudzi mi się."<br>
+"Czy chciałby pan wyjść zza tych krat?"<br>
+"Pewnie. Przynajmniej bym pana zjadł."</p>
+<br>
+<h3>STRUŚ</h3>
+<h4><b>Struś ze strachu<br>
+Ciągle głowę chowa w piachu,<br>
+Wiec ma opinie mazgaja.<br>
+A nadto znosi jaja wielkości strusiego jaja.</b></h4>
+<br>
+<h2>PAPUGA</h2>
+<div>"Papużko, papużko,<br>
+Powiedz mi coś na uszko."<br>
+"Nic nie powiem, boś ty plotkarz,<br>
+Powtórzysz każdemu, kogo spotkasz."</div>
+</body> 
 </html>
