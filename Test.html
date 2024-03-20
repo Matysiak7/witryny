@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Curriculum Vitae Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 50%;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Curriculum Vitae Form</h1>
+    <form id="cvForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="education">Education:</label>
+        <textarea id="education" name="education" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="experience">Experience:</label>
+        <textarea id="experience" name="experience" required></textarea>
+      </div>
+      <button type="button" onclick="generatePDF()">Generate PDF</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script>
+    function generatePDF() {
+  const { jsPDF } = window.jspdf; // Poprawiono składnię
+  const doc = new jsPDF();
+
+  doc.text('CV', 20, 20);
+  doc.text('Imię: ' + document.getElementById('name').value, 20, 50); // Poprawiono błąd w nazwie funkcji getElementById
+
+  doc.save('CV.pdf');
+}
+  </script>
+</body>
+</html>
