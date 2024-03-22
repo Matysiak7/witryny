@@ -1,75 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-  <title>Curriculum Vitae Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      width: 50%;
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-    }
-    input[type="text"],
-    textarea {
-      width: 100%;
-      padding: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .cv-header { text-align: center; }
+  .cv-section { margin-top: 20px; }
+  .cv-section-title { font-size: 20px; border-bottom: 1px solid #000; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Curriculum Vitae Form</h1>
-    <form id="cvForm">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required>
-      </div>
-      <div class="form-group">
-        <label for="education">Education:</label>
-        <textarea id="education" name="education" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="experience">Experience:</label>
-        <textarea id="experience" name="experience" required></textarea>
-      </div>
-      <button type="button" onclick="generatePDF()">Generate PDF</button>
-    </form>
+<div class="cv-container">
+  <div class="cv-header">
+    <h1>CV GENERATOR</h1>
   </div>
+  <form>
+    <div class="cv-contact">
+      <p>Imię i nazwisko: <input type="text" id="name" name="name"></p>
+      <p>E-mail: <input type="email" id="email" name="email"></p>
+      <p>Telefon: <input type="tel" id="phone" name="phone"></p>
+      <p>Data urodzenia: <input type="date" id="birthdate" name="birthdate"></p>
+      <p>Miasto: <input type="text" id="city" name="city"></p>
+      <p>Tutaj wstaw swoje zdjęcie: <input type="file" id="foto" name="foto"></p>
+    </div>
+    <input type="button" onclick="generatePDF()" value="Generuj">
+  </form>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <script>
-    function generatePDF() {
-  const { jsPDF } = window.jspdf; // Poprawiono składnię
-  const doc = new jsPDF();
+<script>
+function generatePDF() {
+  var cvData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    birthdate: document.getElementById('birthdate').value,
+    city: document.getElementById('city').value,
+    // Dodaj tutaj inne pola z formularza
+  };
 
-  doc.text('CV', 20, 20);
-  doc.text('Imię: ' + document.getElementById('name').value, 20, 50); // Poprawiono błąd w nazwie funkcji getElementById
-
-  doc.save('CV.pdf');
+  // Obsługa zdjęcia
+  var fileInput = document.getElementById('foto');
+  var file = fileInput.files[0];
+  if (file) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      cvData.photo = event.target.result; // Dodanie zdjęcia do danych CV
+      generatePDFWithData(cvData);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    generatePDFWithData(cvData);
+  }
 }
-  </script>
+
+function generatePDFWithData(cvData) {
+  var doc = new jsPDF();
+  
+  doc.text(20, 20, 'CV');
+  doc.text(20, 30, 'Imię i nazwisko: ' + cvData.name);
+  doc.text(20, 40, 'E-mail: ' + cvData.email);
+  doc.text(20, 50, 'Telefon: ' + cvData.phone);
+  doc.text(20, 60, 'Data urodzenia: ' + cvData.birthdate);
+  doc.text(20, 70, 'Miasto: ' + cvData.city);
+  // Dodaj tutaj inne sekcje CV
+
+  if (cvData.photo) {
+    var img = new Image();
+    img.src = cvData.photo;
+    img.crossOrigin = "Anonymous";
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      var dataURL = canvas.toDataURL('image/jpeg', 1.0);
+      doc.addImage(dataURL, 'JPEG', 20, 80, 50, 50); // dodanie zdjęcia do dokumentu PDF
+      doc.save('CV.pdf');
+    };
+  } else {
+    doc.save('CV.pdf');
+  }
+}
+</script>
 </body>
 </html>
