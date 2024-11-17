@@ -8,42 +8,83 @@
     <title>Imię Nazwisko - Strona Osobista</title>
     <style>
         body {
-                    font-family: 'Arial', sans-serif;
-                    margin: 20px;
-                background-color: #777777;
-                }
-            header {
-                    text-align: center;
-                    background-color: #f2f2f2;
-                    padding: 10px;
-            }
-            section {
-                    max-width: 800px;
-                    margin: 20px auto;
-                text-align: center;
-            }
-            h1 {
-                    color: #333;
-            }
+            font-family: 'Arial', sans-serif;
+            max-width: 500px;
+            margin: auto;
+            background-color: #777777;
+            justify-content: center;
+            text-align: center;
+        }
+        header {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
         #lista{
             color: #006400;
             text-align: center;
         }
+        th,td{
+            text-align: center;
+        }
+        td{
+            width: 50px; height: 40px;
+        }
+        th{
+            width: 30px; height: 30px;
+        }
+        #head{
+            background-color: #3f31ff;
+        }
+        #colspan{
+            background-color: #00ff55;
+        }
+        #both{
+            background-color: #1dc756;
+        }
+        #rowspan{
+            background-color: #068d33;
+        }
+        table{
+            border-collapse: collapse;
+            margin: auto;
+        }
+        #table1{
+            max-width: 500px;
+            margin: auto;
+        }
+        #table2{
+            max-width: 500px;
+            margin: auto;
+        }
+        #table3{
+            max-width: 500px;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
+    <div id="table1">
     <h1>Tabela 1 - Tabela podstawowa</h1>
      <table border="1">
         <TR>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
+            <th id="head">1</th>
+            <th id="head">2</th>
+            <th id="head">3</th>
+            <th id="head">4</th>
+            <th id="head">5</th>
+            <th id="head">6</th>
         </TR>
         <TR>
-            <td>2</td>
+            <th id="head">2</th>
             <td>a</td>
             <td>b</td>
             <td>c</td>
@@ -51,7 +92,7 @@
             <td>e</td>
         </TR>
         <TR>
-            <td>3</td>
+            <th id="head">3</th>
             <td>f</td>
             <td>g</td>
             <td>h</td>
@@ -59,7 +100,7 @@
             <td>j</td>
         </TR>
         <TR>
-            <td>4</td>
+            <th id="head">4</th>
             <td>k</td>
             <td>l</td>
             <td>m</td>
@@ -67,7 +108,7 @@
             <td>o</td>
         </TR>
         <TR>
-            <td>5</td>
+            <th id="head">5</th>
             <td>p</td>
             <td>q</td>
             <td>r</td>
@@ -75,81 +116,76 @@
             <td>t</td>
         </TR>
         <TR>
-            <td>6</td>
+            <th id="head">6</th>
             <td>u</td>
             <td>v</td>
             <td>w</td>
             <td>y</td>
             <td>z</td>
         </TR>
-     </table>
+     </table><br>
+    </div>
 
-
-     <h1>Tabela 2 - Scalenia</h1>
-     <table border="1"></table>
+    <div id="table2">
+     <h1>Tabela 2 - Scalenia</h1><br>
+     <table border="1">
         <TR>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
+            <th id="head">1</th>
+            <th id="head">2</th>
+            <th id="head">3</th>
+            <th id="head">4</th>
+            <th id="head">5</th>
+            <th id="head">6</th>
         </TR>
         <TR>
-            <td>2</td>
+            <th id="head">2</th>
             <td>a</td>
-            <td colspan="2">b,c</td>
-            <td>c</td>
+            <td colspan="2" id="colspan">b, c</td>
             <td>d</td>
             <td>e</td>
         </TR>
         <TR>
-            <td>3</td>
+            <th id="head">3</th>
             <td>f</td>
             <td>g</td>
             <td>h</td>
             <td>i</td>
-            <td rowspan="2">j,o</td>
+            <td rowspan="2" id="rowspan">j, o</td>
         </TR>
         <TR>
-            <td>4</td>
+            <th id="head">4</th>
             <td>k</td>
             <td>l</td>
             <td>m</td>
             <td>n</td>
-            <td>o</td>
         </TR>
         <TR>
-            <td>5</td>
-            <td colspan="3" rowspan="2">p,q,r,u,v,w</td>
-            <td>q</td>
-            <td>r</td>
+            <th id="head">5</th>
+            <td colspan="3" rowspan="2" id="both">p, q, r, u, v, w</td>
             <td>s</td>
             <td>t</td>
         </TR>
         <TR>
-            <td>6</td>
-            <td>u</td>
-            <td>v</td>
-            <td>w</td>
+            <th id="head">6</th>
             <td>y</td>
             <td>z</td>
         </TR>
-     </table>
+     </table><br>
+    </div>
 
-
-     <h1>Tabela 3 - Inicjały</h1>
-     <table border="1"></table>
+    <div id="table3">
+     <h1>Tabela 3 - Inicjały</h1><br>
+     <table border="1">
         <TR>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
+            <th id="head">1</th>
+            <th id="head">2</th>
+            <th id="head">3</th>
+            <th id="head">4</th>
+            <th id="head">5</th>
+            <th id="head">6</th>
         </TR>
         <TR>
-            <td>2</td>
+            <th id="head">2</th>
             <td>a</td>
             <td>b</td>
             <td>c</td>
@@ -157,23 +193,22 @@
             <td>e</td>
         </TR>
         <TR>
-            <td>3</td>
+            <th id="head">3</th>
             <td>f</td>
             <td>g</td>
-            <td>h</td>
+            <td rowspan="2" id="rowspan">h, m</td>
             <td>i</td>
             <td>j</td>
         </TR>
         <TR>
-            <td>4</td>
+            <th id="head">4</th>
             <td>k</td>
             <td>l</td>
-            <td>m</td>
             <td>n</td>
             <td>o</td>
         </TR>
         <TR>
-            <td>5</td>
+            <th id="head">5</th>
             <td>p</td>
             <td>q</td>
             <td>r</td>
@@ -181,14 +216,15 @@
             <td>t</td>
         </TR>
         <TR>
-            <td>6</td>
+            <th id="head">6</th>
             <td>u</td>
             <td>v</td>
             <td>w</td>
             <td>y</td>
             <td>z</td>
         </TR>
-     </table>
+     </table><br>
+    </div>
      <a href="index.html">strona główna</a>
 </body>
 </html>
