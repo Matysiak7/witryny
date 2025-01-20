@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="hiperłącze">
+    <meta name=”author” content=”Hubert Matysiak”/>
+    <title>Herby</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 500px;
+            margin: auto;
+            background-color: #777777;
+            justify-content: center;
+            text-align: center;
+        }
+        header {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }img{
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jak definiujemy kotwicę na stronie:</h1>
+
+    <section>
+        <h2 id="a_top">Tutaj zdefiniowaliśmy kotwicę o nazwie <i>a_top</i></h2>
+        <p>
+            <a href="#a_bottom">To jest link do kotwicy dolnej</a>
+        </p>
+        <figure>
+            <img src="czas-zniw-tom-1.jpg" >
+            <figcaption>
+                Rysunek 1. Stara okładka książki
+            </figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <br /><br /><br />
+        <p>
+            Zdefiniowanie kotwicy w konkretnym miejscu dokumentu HTML<br />
+            i wskazanie tej kotwicy w linku do tego dokumentu,<br />
+            spowoduje po jego otwarciu, przewinięcie -<br />
+            tak aby wiersz zawierający kotwicę znajdował się jak najbliżej górnej krawędzi okna przeglądarki.<br />
+            Aby było co przewijać dodamy dwa rysunki kotwic oraz linie puste,<br />
+            a następnie, zdefiniujemy dwie kotwice.
+        </p>
+        <br /><br /><br />
+    </section>
+
+    <section>
+        <a name="a_bottom"></a>
+        <h2>Tutaj została zdefiniowana kotwica o nazwie <i>a_bottom</i></h2>
+        <p>
+            <a href="#a_top">To jest link do kotwicy górnej</a>
+        </p>
+        <figure>
+            <img src="czas-zniw-wersja-autorska.jpg">
+            <figcaption>
+                Rysunek 2. Nowa okładka książki
+            </figcaption>
+        </figure>
+    </section>
+    <div style="font-family: arial; margin-top: 5%;">
+        <a href="index.html">Strona Główna</a>
+     </div>
+</body>
+</html>
